@@ -1,31 +1,25 @@
-int contadorBoton = 8;
-int dip1 = 9;
-int dip2 = 10;
+//Pines
+int contadorBoton = 10;
+int configBoton = A0;
+int dip1 = 8;
+int dip2 = 9;
 
-int salida1 = 2;
-int salida2 = 3;
-int salida3 = 4;
-int salida4 = 11;
-int salida5 = 12;
-int salida6 = 13;
+int salida1 = 7;
+int salida2 = 6;
+int salida3 = 5;
+int salida4 = 4;
+int salida5 = 3;
+int salida6 = 2;
 
-int entradaBoton1 = A0;
-int entradaBoton2 = A1;
-int entradaBoton3 = A2;
-int entradaBoton4 = A3;
+int entrada1 = A1;
+int entrada2 = A2;
+int entrada3 = A3;
 
 
-int estadoBoton1;
-int estadoBoton2;
-int estadoBoton3;
-
-int estadoConfig = 0;
 //Variables
 
-int entrada4 = 0;
-int entrada5 = 0;
-int entrada6 = 0;
 int contador = 0;
+int estadoConfig = 0;
 
 int bandera1Control1 = -1;
 int bandera2Control1 = -1;
@@ -47,8 +41,7 @@ int bandera2Control6 = -1;
 
 void setup() {
   Serial.begin(9600);
-  
- 
+
   pinMode(salida1, OUTPUT);
   pinMode(salida2, OUTPUT);
   pinMode(salida3, OUTPUT);
@@ -57,8 +50,12 @@ void setup() {
   pinMode(salida6, OUTPUT);
   
   pinMode(contadorBoton, INPUT);
-  pinMode(entradaBoton1, INPUT);
-  pinMode(entradaBoton2, INPUT);
+  pinMode(configBoton, INPUT);
+  pinMode(entrada1, INPUT);
+  pinMode(entrada2, INPUT);
+  pinMode(entrada3, INPUT);
+  pinMode(dip1, INPUT);
+  pinMode(dip2, INPUT);
   
 }
 
@@ -75,7 +72,7 @@ void loop() {
 
   Serial.println(contador);
 
-  if(digitalRead(entradaBoton1) == HIGH){
+  if(digitalRead(configBoton) == HIGH){
      delay(300);
     if(estadoConfig == 0){
       estadoConfig = 1;
@@ -141,18 +138,18 @@ int configurarSalida(int dip){
 void habilitarSalidaConEntrada(int bandera1, int bandera2, int salida){
    if(bandera1 == 0 && bandera2 == 0){
       for(int i = 0; i <= 255; i++){
-        digitalWrite(salida, digitalRead(entradaBoton2));
+        digitalWrite(salida, digitalRead(entrada1));
       }
     }else if(bandera1 == 0 && bandera2 == 1){
       for(int i = 0; i <= 255; i++){
-        digitalWrite(salida, digitalRead(entradaBoton3));
+        digitalWrite(salida, digitalRead(entrada2));
       }
     }else if(bandera1 == 1 && bandera2 == 0){
       for(int i = 0; i <= 255; i++){
-        digitalWrite(salida, digitalRead(entradaBoton4));
+        digitalWrite(salida, digitalRead(entrada3));
       } 
     }else{
-      digitalWrite(salida1, LOW);
+      digitalWrite(salida, LOW);
     }
 }
 
