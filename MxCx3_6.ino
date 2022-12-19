@@ -105,6 +105,7 @@ void habilitarSalidaConEntrada(int bandera1, int bandera2, int salida){
 }
 
 void cambiarEstadoConfig(){
+  delayMicroseconds(400);
   if(estadoConfig == 0){
     estadoConfig = 1;
   }else{
@@ -115,34 +116,27 @@ void cambiarEstadoConfig(){
     switch(contador){
       case 1:
         Serial.println("Configurando 1");
-        bandera1Control1 = configurarSalida(1);
-        bandera2Control1 = configurarSalida(2);
         configurarSalida(bandera1Control1, bandera2Control1);
       break;
       case 2:
         Serial.println("Configurando 2");
-        bandera1Control2 = configurarSalida(1);
-        bandera2Control2 = configurarSalida(2);
+        configurarSalida(bandera1Control2, bandera2Control2);
       break;
       case 3:
         Serial.println("Configurando 3");
-        bandera1Control3 = configurarSalida(1);
-        bandera2Control3 = configurarSalida(2);
+        configurarSalida(bandera1Control3, bandera2Control3);
       break;
       case 4:
         Serial.println("Configurando 4");
-        bandera1Control4 = configurarSalida(1);
-        bandera2Control4 = configurarSalida(2);
+        configurarSalida(bandera1Control4, bandera2Control4);
       break;
       case 5:
         Serial.println("Configurando 5");
-        bandera1Control5 = configurarSalida(1);
-        bandera2Control5 = configurarSalida(2);
+        configurarSalida(bandera1Control5, bandera2Control5);
       break;
       case 6:
         Serial.println("Configurando 6");
-        bandera1Control6 = configurarSalida(1);
-        bandera2Control6 = configurarSalida(2);
+        configurarSalida(bandera1Control6, bandera2Control6);
       break;
     }
   }
