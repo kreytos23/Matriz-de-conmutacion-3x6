@@ -73,12 +73,9 @@ void loop() {
   habilitarSalidaConEntrada(bandera1Control6, bandera2Control6, salida6);
 }
 
-int configurarSalida(int dip){
-  if(dip == 1){
-    return digitalRead(dip1);
-  }else{
-    return digitalRead(dip2);
-  }
+int configurarSalida(int &bandera1, int &bandera2){
+  bandera1 = digitalRead(dip1);
+  bandera2 = digitalRead(dip2);
 }
 
 void contadorIncremento(){
@@ -120,6 +117,7 @@ void cambiarEstadoConfig(){
         Serial.println("Configurando 1");
         bandera1Control1 = configurarSalida(1);
         bandera2Control1 = configurarSalida(2);
+        configurarSalida(bandera1Control1, bandera2Control1);
       break;
       case 2:
         Serial.println("Configurando 2");
