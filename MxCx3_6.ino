@@ -15,9 +15,7 @@ int entrada1 = A1;
 int entrada2 = A2;
 int entrada3 = A3;
 
-
 //Variables
-
 volatile int contador = 0;
 volatile int estadoConfig = 0;
 
