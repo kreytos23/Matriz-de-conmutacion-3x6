@@ -77,7 +77,7 @@ int configurarSalida(int &bandera1, int &bandera2){
 }
 
 void contadorIncremento(){
-  delayMicroseconds(400);
+  delayMicroMili();
   contador++;
   if(contador >= 7){
     contador = 1;
@@ -103,7 +103,7 @@ void habilitarSalidaConEntrada(int bandera1, int bandera2, int salida){
 }
 
 void cambiarEstadoConfig(){
-  delayMicroseconds(400);
+  delayMicroMili();
   if(estadoConfig == 0){
     estadoConfig = 1;
   }else{
@@ -138,4 +138,9 @@ void cambiarEstadoConfig(){
       break;
     }
   }
+}
+void delayMicroMili(){
+  for(int i = 0; i<3; i++){
+    delayMicroseconds(16383);
+  }  
 }
